@@ -46,8 +46,8 @@ export default function SearchForm({
     };
 
     return (
-        <div className="bg-purple-200 font-sans text-purple-950 rounded-xl p-6 mb-4 relative">
-            <h1 className="font-sans text-slate-700 text-2xl font-extrabold tracking-wide mb-4">
+        <div className="bg-slate-200 font-sans text-purple-950 rounded-xl p-6 mb-4 relative">
+            <h1 className="font-sans text-slate-950 text-2xl font-extrabold tracking-wide mb-4">
                 Søk etter en dagligvarer
             </h1>
             <form onSubmit={onFormSubmit}>
@@ -68,7 +68,7 @@ export default function SearchForm({
                 </button>
             </form>
             <div
-                className={`bg-purple-50 max-h-96 grid gap-3 rounded-xl p-4 absolute shadow-xl overflow-scroll ${autoCompleteDisplay}`}
+                className={`bg-slate-100 max-h-96 grid gap-3 rounded-xl p-4 absolute shadow-xl overflow-scroll ${autoCompleteDisplay}`}
             >
                 <div className={`col-span-2 ${autoCompleteLoader}`}>
                     Søker...
@@ -78,7 +78,7 @@ export default function SearchForm({
                     <button
                         key={item.id}
                         onClick={(e) => autoCompleteSelected(item)}
-                        className="grid grid-cols-2 gap-3 text-start items-center bg-white hover:bg-gray-100 p-4 rounded-lg"
+                        className="grid grid-cols-2 gap-3 text-start items-center bg-white hover:bg-purple-50 p-4 rounded-lg"
                     >
                         <div>{item.name}</div>
                         <div className="">

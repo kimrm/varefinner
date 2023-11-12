@@ -13,7 +13,6 @@ export default function App() {
 
     useEffect(() => {
         if (searchTerm.length > 2) {
-            console.log("searching...");
             ApiAutocompleteSearch(searchTerm).then((products) => {
                 setAutoComplete(products);
             });
@@ -28,8 +27,8 @@ export default function App() {
     };
 
     const autoCompleteClick = (item) => {
-        ApiEanSearch(item.ean).then((products) => {
-            setSearchResult(products);
+        ApiEanSearch(item.ean).then((data) => {
+            setSearchResult(data.products);
             setSearchEnabled(true);
         });
     };
