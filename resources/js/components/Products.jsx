@@ -35,6 +35,12 @@ const Products = ({ data, enabled }) => {
         if (!b.current_price.price) {
             return 0;
         }
+        if (!b.current_price) {
+            return 0;
+        }
+        if (!b.current_price.price) {
+            return 0;
+        }
         if (a.current_price.price < b.current_price.price) {
             return -1;
         }
