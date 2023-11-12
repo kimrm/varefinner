@@ -39,26 +39,6 @@ const Products = ({ data, enabled }) => {
         setProducts(sortedProducts);
     });
 
-    function sortSearch(a, b) {
-        if (a.current_price < b.current_price) {
-            return -1;
-        }
-        if (a.current_price > b.current_price) {
-            return 1;
-        }
-        return 0;
-    }
-
-    function sortEan(a, b) {
-        if (a.current_price.price < b.current_price.price) {
-            return -1;
-        }
-        if (a.current_price.price > b.current_price.price) {
-            return 1;
-        }
-        return 0;
-    }
-
     return (
         <div
             className={`grid rounded-xl lg:grid-cols-3 xl:grid-cols-4 gap-4 bg-slate-50 p-4 text-purple-950 ${
