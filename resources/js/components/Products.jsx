@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
 
-const Products = ({ data, enabled }) => {
+const Products = ({ data, productClicked, enabled }) => {
     const [products, setProducts] = useState([]);
 
     function validatePrice(product) {
@@ -49,6 +49,7 @@ const Products = ({ data, enabled }) => {
                 <button
                     className={`border rounded-xl p-4 bg-slate-100 hover:bg-slate-50 hover:shadow-xl focus:bg-slate-50 focus:shadow-xl`}
                     key={item.id}
+                    onClick={() => productClicked(item)}
                 >
                     <ProductItem item={item}></ProductItem>
                 </button>
