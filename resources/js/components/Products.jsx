@@ -5,9 +5,7 @@ const Products = ({ data, enabled }) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const prodArr = data && data.products ? data.products : data;
-
-        const sortedProducts = prodArr.sort((a, b) => {
+        const sortedProducts = data.sort((a, b) => {
             if (typeof a.current_price === "number") {
                 return sortSearch(a, b);
             } else {
