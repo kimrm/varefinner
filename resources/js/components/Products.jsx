@@ -4,16 +4,36 @@ import ProductItem from "./ProductItem";
 const Products = ({ data, enabled }) => {
     const [products, setProducts] = useState([]);
 
+    function validatePrice(product) {
+        switch (typeof product.current_price) {
+            case "number":
+                return product.current_price;
+            case "object":
+                return product.current_price
+                    ? product.current_price.price
+                    : null;
+            default:
+                return null;
+        }
+    }
+
     useEffect(() => {
         const sortedProducts = data.sort((a, b) => {
-            if (typeof a.current_price === "number") {
-                return sortSearch(a, b);
-            } else {
-                if (a.current_price === null || b.current_price === null) {
-                    return 0;
-                }
-                return sortEan(a, b);
+            const priceA = validatePrice(a);
+            const priceB = validatePrice(b);
+
+            if (priceA === null || priceB === null) {
+                return 0;
             }
+
+            if (priceA < priceB) {
+                return -1;
+            }
+            if (priceA > priceB) {
+                return 1;
+            }
+
+            return 0;
         });
 
         setProducts(sortedProducts);
