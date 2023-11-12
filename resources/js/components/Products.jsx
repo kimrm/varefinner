@@ -29,7 +29,10 @@ const Products = ({ data, enabled }) => {
     }
 
     function sortEan(a, b) {
-        if (a.current_price === null) {
+        if (!a.current_price) {
+            return 0;
+        }
+        if (!b.current_price.price) {
             return 0;
         }
         if (a.current_price.price < b.current_price.price) {

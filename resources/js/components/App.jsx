@@ -34,7 +34,6 @@ export default function App() {
     };
 
     const searchTermChanged = (value) => {
-        console.log("searchTermChanged", value);
         setSearchTerm(value);
     };
 
